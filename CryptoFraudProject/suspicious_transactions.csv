@@ -1,0 +1,26 @@
+transaction_id,from_wallet,to_wallet,amount_eth,timestamp,primary_risk_wallet,adaptive_risk_score,risk_level,detected_behaviors,evidence,exchange
+T001,0xA001,0xB001,10.0,2026-09-05 10:00:00,0xB001,5.55,HIGH,multiple_hop,multi-hop fund movement,None
+T002,0xB001,0xC001,9.8,2026-09-05 10:02:00,0xC001,7.72,HIGH,multiple_hop,multi-hop fund movement,None
+T003,0xC001,0xD001,9.5,2026-09-05 10:06:00,0xC001,7.72,HIGH,multiple_hop,multi-hop fund movement,None
+T004,0xD001,0xE001,9.2,2026-09-05 10:10:00,0xD001,7.72,HIGH,multiple_hop,multi-hop fund movement,None
+T005,0xA002,0xB002,25.0,2026-09-05 10:16:40,0xB002,7.0,HIGH,"multiple_hop, rapid_transfer",multi-hop fund movement; rapid fund movement,None
+T006,0xB002,0xC002,24.7,2026-09-05 10:16:48,0xC002,8.7,HIGH,"multiple_hop, rapid_transfer",multi-hop fund movement; rapid fund movement,None
+T007,0xC002,0xD002,24.2,2026-09-05 10:17:00,0xD002,9.0,HIGH,"multiple_hop, rapid_transfer",multi-hop fund movement; rapid fund movement,None
+T008,0xA003,0xB003,120.0,2026-09-05 10:25:00,0xB003,5.0,HIGH,fund_splitting,fund splitting,None
+T009,0xB003,0xC003,35.0,2026-09-05 10:30:00,0xB003,5.0,HIGH,fund_splitting,fund splitting,None
+T010,0xB003,0xD003,40.0,2026-09-05 10:30:10,0xB003,5.0,HIGH,fund_splitting,fund splitting,None
+T011,0xB003,0xE003,35.0,2026-09-05 10:30:20,0xB003,5.0,HIGH,fund_splitting,fund splitting,None
+T012,0xA004,0xRISK01,15.0,2026-09-05 10:36:40,0xRISK01,9.25,HIGH,flagged_wallet,interaction with flagged wallet,None
+T013,0xRISK01,0xF004,14.5,2026-09-05 10:40:00,0xRISK01,9.25,HIGH,flagged_wallet,interaction with flagged wallet,None
+T014,0xG004,0xRISK02,8.0,2026-09-05 10:46:40,0xRISK02,7.0,HIGH,flagged_wallet,interaction with flagged wallet,None
+T039,0xE001,0xEXCH001,10.0,2026-09-05 12:10:00,0xE001,7.72,HIGH,multiple_hop,multi-hop fund movement; destination is known exchange (Binance),Binance
+T040,0xE005,0xEXCH002,15.0,2026-09-05 12:20:00,0xE005,7.55,HIGH,multiple_hop,multi-hop fund movement; destination is known exchange (Coinbase),Coinbase
+T023,0xA005,0xB005,60.0,2026-09-05 17:13:20,0xB005,9.55,HIGH,"multiple_hop, rapid_transfer",multi-hop fund movement; rapid fund movement,None
+T024,0xB005,0xC005,59.5,2026-09-05 17:13:32,0xB005,9.55,HIGH,"multiple_hop, rapid_transfer",multi-hop fund movement; rapid fund movement,None
+T025,0xC005,0xD005,59.0,2026-09-05 17:15:00,0xC005,9.55,HIGH,"multiple_hop, rapid_transfer",multi-hop fund movement; rapid fund movement,None
+T026,0xD005,0xE005,58.5,2026-09-05 17:20:00,0xE005,7.55,HIGH,multiple_hop,multi-hop fund movement,None
+T027,0xA006,0xB006,200.0,2026-09-05 18:20:00,0xB006,5.0,HIGH,fund_splitting,fund splitting,None
+T028,0xB006,0xC006,50.0,2026-09-05 18:25:00,0xB006,5.0,HIGH,fund_splitting,fund splitting,None
+T029,0xB006,0xD006,45.0,2026-09-05 18:25:10,0xB006,5.0,HIGH,fund_splitting,fund splitting,None
+T030,0xB006,0xE006,55.0,2026-09-05 18:25:20,0xB006,5.0,HIGH,fund_splitting,fund splitting,None
+T031,0xB006,0xF006,40.0,2026-09-05 18:25:30,0xB006,5.0,HIGH,fund_splitting,fund splitting,None

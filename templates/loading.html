@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethereum Wallet Risk Analysis - Loading</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 flex items-center justify-center min-h-screen">
+    <div class="text-center p-8 max-w-md w-full bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl">
+        <!-- Blockchain Network Pulse Animation -->
+        <div class="relative w-28 h-28 mx-auto mb-8 flex items-center justify-center">
+            <div class="absolute inset-0 rounded-full border-2 border-blue-500/30 animate-ping"></div>
+            <div class="absolute inset-3 rounded-full border border-teal-400/40 animate-pulse"></div>
+            <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-teal-500 rounded-xl shadow-lg shadow-blue-500/50 flex items-center justify-center font-bold text-white text-lg">
+                ETH
+            </div>
+        </div>
+
+        <h1 class="text-2xl font-bold tracking-wide mb-2">Ethereum Wallet Risk Analysis</h1>
+        <p class="text-slate-400 text-xs mb-6">Blockchain-based suspicious transaction analysis and risk assessment</p>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 shadow-xl mb-4">
+            <div class="flex items-center space-x-3 mb-3">
+                <div class="w-4 h-4 rounded-full border-2 border-teal-400 border-t-transparent animate-spin"></div>
+                <span class="text-xs font-medium text-teal-300">Initializing analysis environment...</span>
+            </div>
+            <div class="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-teal-400 h-full animate-pulse w-3/4"></div>
+            </div>
+        </div>
+
+        <a href="input.html" class="text-xs text-slate-400 hover:text-slate-200 transition">
+            Skip initialization &rarr;
+        </a>
+    </div>
+
+    <script>
+        // Automatic transition to input page after 2.5 seconds
+        setTimeout(() => {
+            window.location.href = 'input.html';
+        }, 2500);
+    </script>
+</body>
+</html>

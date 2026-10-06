@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethereum Wallet Risk Analysis - Results</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 min-h-screen py-8 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto space-y-8">
+        
+        <!-- Analysis Header -->
+        <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl gap-4">
+            <div>
+                <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold block mb-1">Analysis Complete</span>
+                <h1 class="text-2xl font-bold tracking-tight">Wallet Analysis Results</h1>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                    Analyzed Wallet: <span id="displayWallet" class="font-mono text-teal-300 font-semibold">0x71C8A3B29014E9F23184B4a21098F2d88653a9B</span>
+                </p>
+            </div>
+            <a href="input.html" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-2.5 rounded-xl text-sm font-medium border border-slate-700 transition">
+                &larr; Analyze Another Wallet
+            </a>
+        </header>
+
+        <!-- Risk Summary Card & Stats -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+                <div>
+                    <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Risk Score</span>
+                    <div class="text-5xl font-extrabold font-mono text-amber-400 mt-2">78 <span class="text-xl text-slate-500">/ 100</span></div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+                    <span class="text-xs text-slate-400">Classification</span>
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-red-950 text-red-400 border border-red-800">HIGH RISK</span>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div class="p-4 bg-slate-950/70 rounded-xl border border-slate-800">
+                    <span class="text-xs text-slate-400 block mb-1">Transaction Count</span>
+                    <div class="text-2xl font-bold font-mono">142</div>
+                </div>
+                <div class="p-4 bg-slate-950/70 rounded-xl border border-slate-800">
+                    <span class="text-xs text-slate-400 block mb-1">Total ETH Transferred</span>
+                    <div class="text-2xl font-bold font-mono text-teal-300">458.24 ETH</div>
+                </div>
+                <div class="p-4 bg-slate-950/70 rounded-xl border border-slate-800">
+                    <span class="text-xs text-slate-400 block mb-1">Destination Wallets</span>
+                    <div class="text-2xl font-bold font-mono">24</div>
+                </div>
+                <div class="p-4 bg-slate-950/70 rounded-xl border border-slate-800">
+                    <span class="text-xs text-slate-400 block mb-1">Identified Exchanges</span>
+                    <div class="text-2xl font-bold font-mono text-blue-400">5</div>
+                </div>
+                <div class="p-4 bg-slate-950/70 rounded-xl border border-slate-800 col-span-2 sm:col-span-2">
+                    <span class="text-xs text-slate-400 block mb-1">Suspicious Transactions</span>
+                    <div class="text-2xl font-bold font-mono text-red-400">12 flagged</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transaction Network Visualization -->
+        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl">
+            <h2 class="text-lg font-bold mb-1">Transaction Network</h2>
+            <p class="text-xs text-slate-400 mb-4">Suspect Wallet &rarr; Intermediary &rarr; Destination / Exchange</p>
+            <div id="networkCanvas" class="w-full h-80 bg-slate-950 rounded-xl border border-slate-800 flex items-center justify-center relative overflow-hidden p-4">
+                <svg class="w-full h-full" viewBox="0 0 700 260">
+                    <line x1="140" y1="130" x2="300" y2="130" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4" />
+                    <line x1="380" y1="130" x2="540" y2="130" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4" />
+                    
+                    <g transform="translate(60, 105)">
+                        <rect width="100" height="50" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="1.5" />
+                        <text x="50" y="30" fill="#f8fafc" font-size="11" font-family="monospace" text-anchor="middle">Suspect</text>
+                    </g>
+                    <g transform="translate(300, 105)">
+                        <rect width="100" height="50" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+                        <text x="50" y="30" fill="#f8fafc" font-size="11" font-family="monospace" text-anchor="middle">Relay A</text>
+                    </g>
+                    <g transform="translate(540, 105)">
+                        <rect width="110" height="50" rx="8" fill="#172554" stroke="#3b82f6" stroke-width="1.5" />
+                        <text x="55" y="30" fill="#f8fafc" font-size="11" font-family="monospace" text-anchor="middle">Tornado CEX</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Transaction Ledger Table -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
+            <div class="p-6 border-b border-slate-800">
+                <h2 class="text-lg font-bold">Transaction Ledger</h2>
+                <p class="text-xs text-slate-400 mt-0.5">Detailed breakdown of retrieved blockchain activity</p>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-slate-950 text-slate-400 text-xs uppercase tracking-wider border-b border-slate-800 font-mono">
+                            <th class="p-4">Wallet Address</th>
+                            <th class="p-4">Tx Hash</th>
+                            <th class="p-4">Sender</th>
+                            <th class="p-4">Receiver</th>
+                            <th class="p-4">ETH Value</th>
+                            <th class="p-4">Amount Transferred</th>
+                            <th class="p-4">Timestamp</th>
+                            <th class="p-4">Destination</th>
+                            <th class="p-4 text-center">Tx Count</th>
+                            <th class="p-4">Risk Indicators</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800/60 font-mono text-xs">
+                        <tr class="hover:bg-slate-800/40 transition">
+                            <td class="p-4 text-teal-300">0x71C...a9B</td>
+                            <td class="p-4 text-slate-400 truncate max-w-[100px]">0x98f4c2e1a8...3b1a</td>
+                            <td class="p-4 text-slate-300">0x71C...a9B</td>
+                            <td class="p-4 text-slate-300">0x389...881f</td>
+                            <td class="p-4 text-slate-100 font-bold">45.5 ETH</td>
+                            <td class="p-4 text-slate-300">45.5 ETH ($128,400)</td>
+                            <td class="p-4 text-slate-400">2026-09-21 07:42</td>
+                            <td class="p-4 text-blue-400">Tornado Cash Router</td>
+                            <td class="p-4 text-center">8</td>
+                            <td class="p-4 text-amber-400 font-sans">Mixer Interaction</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/40 transition">
+                            <td class="p-4 text-teal-300">0x71C...a9B</td>
+                            <td class="p-4 text-slate-400 truncate max-w-[100px]">0x44a2b1c9e3...f022</td>
+                            <td class="p-4 text-slate-300">0x71C...a9B</td>
+                            <td class="p-4 text-slate-300">0x28C...91a2</td>
+                            <td class="p-4 text-slate-100 font-bold">120.0 ETH</td>
+                            <td class="p-4 text-slate-300">120.0 ETH ($338,800)</td>
+                            <td class="p-4 text-slate-400">2026-09-21 06:15</td>
+                            <td class="p-4 text-blue-400">Binance Hot Wallet</td>
+                            <td class="p-4 text-center">15</td>
+                            <td class="p-4 text-amber-400 font-sans">High-value CEX Deposit</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Risk Indicators & Final Assessment -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl">
+                <h2 class="text-lg font-bold mb-4">Risk Indicators</h2>
+                <div class="space-y-3 text-sm text-slate-300">
+                    <div class="bg-slate-950 border border-amber-500/20 p-3.5 rounded-xl flex items-start space-x-3">
+                        <span class="text-amber-400 font-bold">&bull;</span>
+                        <span>High transaction frequency exceeding 10 tx/hour</span>
+                    </div>
+                    <div class="bg-slate-950 border border-amber-500/20 p-3.5 rounded-xl flex items-start space-x-3">
+                        <span class="text-amber-400 font-bold">&bull;</span>
+                        <span>Direct interaction with known privacy mixer contracts (Tornado Cash)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold mb-2">Overall Risk Assessment</h2>
+                    <div class="my-6 text-center bg-slate-950 p-6 rounded-xl border border-slate-800">
+                        <div class="text-4xl font-extrabold font-mono text-amber-400 mb-1">78/100</div>
+                        <div class="text-sm font-bold text-red-400 tracking-wider">HIGH RISK</div>
+                    </div>
+                    <p class="text-xs text-slate-400 text-center">
+                        Risk assessment generated from blockchain transaction patterns and graph traversal analysis.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

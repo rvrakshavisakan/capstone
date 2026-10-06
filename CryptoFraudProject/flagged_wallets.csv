@@ -1,0 +1,5 @@
+wallet_address,risk_level,reason
+0xRISK01,HIGH,Known scam-associated wallet (synthetic test data)
+0xRISK02,HIGH,Previously reported suspicious wallet (synthetic test data)
+0xSCAM01,HIGH,Known scam-associated wallet (synthetic test data)
+0xSCAM02,MEDIUM,Suspicious activity reported by investigators (synthetic test data)

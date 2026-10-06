@@ -1,0 +1,19 @@
+wallet_address,risk_score,risk_level,deviation_score,deviation_reasons,behaviors
+0xB005,9.55,HIGH,0,None,"multiple_hop, rapid_transfer"
+0xC005,9.55,HIGH,0,None,"multiple_hop, rapid_transfer"
+0xRISK01,9.25,HIGH,0,None,flagged_wallet
+0xD002,9.0,HIGH,2,high_fund_flow_ratio,"multiple_hop, rapid_transfer"
+0xC002,8.7,HIGH,0,None,"multiple_hop, rapid_transfer"
+0xE001,7.72,HIGH,0,None,multiple_hop
+0xC001,7.72,HIGH,0,None,multiple_hop
+0xD001,7.72,HIGH,0,None,multiple_hop
+0xE005,7.55,HIGH,2,high_fund_flow_ratio,multiple_hop
+0xRISK02,7.0,HIGH,2,high_fund_flow_ratio,flagged_wallet
+0xB002,7.0,HIGH,0,None,"multiple_hop, rapid_transfer"
+0xD005,5.55,HIGH,0,None,multiple_hop
+0xB001,5.55,HIGH,0,None,multiple_hop
+0xB003,5.0,HIGH,2,high_transaction_frequency,fund_splitting
+0xA005,5.0,HIGH,2,high_fund_flow_ratio,multiple_hop
+0xB006,5.0,HIGH,2,high_transaction_frequency,fund_splitting
+0xA002,5.0,HIGH,2,high_fund_flow_ratio,multiple_hop
+0xA001,5.0,HIGH,2,high_fund_flow_ratio,multiple_hop
